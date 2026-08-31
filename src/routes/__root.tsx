@@ -77,21 +77,29 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Qué Pinta — Diseños e Impresiones en Sublimación" },
+      {
+        name: "description",
+        content:
+          "Qué Pinta: diseño gráfico e impresión por sublimación en Cuba. Tazas, camisetas, souvenirs, tarjetas de presentación y productos personalizados con calidad y color.",
+      },
+      { name: "author", content: "Qué Pinta" },
+      { property: "og:title", content: "Qué Pinta — Diseños e Impresiones" },
+      {
+        property: "og:description",
+        content:
+          "Diseño gráfico e impresión por sublimación en Cuba. Productos personalizados con calidad y color.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:site", content: "@quepinta" },
     ],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", type: "image/png", href: "/favicon.png" },
     ],
   }),
   shellComponent: RootShell,
