@@ -561,19 +561,27 @@ function Index() {
                   </div>
                 </a>
 
-                <div className="flex items-center gap-4 rounded-2xl border border-border bg-card p-4 shadow-card">
+                <a
+                  href={whatsappLink(
+                    WHATSAPP_PRIMARY,
+                    "Hola, quiero solicitar un presupuesto."
+                  )}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-4 rounded-2xl border border-border bg-card p-4 shadow-card transition-colors hover:bg-secondary"
+                >
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-brand-pink/10">
                     <Mail className="h-6 w-6 text-brand-pink" />
                   </div>
                   <div>
                     <p className="font-semibold text-card-foreground">
-                      Correo electrónico
+                      Solicitar presupuesto
                     </p>
                     <p className="text-sm text-muted-foreground">
-                      contacto@quepinta.cu
+                      Escríbenos por WhatsApp
                     </p>
                   </div>
-                </div>
+                </a>
 
                 <div className="flex items-center gap-4 rounded-2xl border border-border bg-card p-4 shadow-card">
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-brand-teal/10">
