@@ -1,24 +1,33 @@
-# Sublimation Studio
+# Qué Pinta — sitio estático para GitHub Pages
 
-Quiero crear una página web para mi negocio de impresión Sublimacion y diseño
+Sitio web de **Qué Pinta**, negocio de diseño gráfico, sublimación e impresión. Esta versión está preparada para publicarse como sitio estático en GitHub Pages y ya no depende de los recursos privados de Lovable.
 
-This project was built with [Lovable](https://lovable.dev).
-
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/ec6573f7-ef17-41bc-80a2-a74836f855fe).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+## Desarrollo local
 
 ```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
+npm install
 npm run dev
 ```
+
+Para probar una build de producción:
+
+```sh
+npm run build:pages
+npm run preview
+```
+
+## Publicar en GitHub Pages
+
+El workflow [`.github/workflows/deploy-pages.yml`](.github/workflows/deploy-pages.yml) construye el sitio automáticamente cada vez que se hace push a `main`. En GitHub, abre **Settings → Pages**, selecciona **GitHub Actions** como fuente y espera a que finalice el workflow.
+
+La URL será:
+
+```text
+https://javierperezv99.github.io/print-and-shine-web/
+```
+
+El workflow calcula el nombre del repositorio automáticamente y configura el `base path`, por lo que las rutas y los assets funcionan dentro del subdirectorio de GitHub Pages.
+
+## Contacto
+
+Los botones de contacto abren WhatsApp con los números configurados en `src/routes/index.tsx`. Actualiza esos números antes de publicar si necesitas usar otros.

@@ -17,16 +17,18 @@ import {
   Sparkles,
 } from "lucide-react";
 
-import logoAsset from "../assets/que-pinta-logo.jpeg.asset.json";
-import tazaImg from "../assets/producto-taza.jpg.asset.json";
-import camisetaImg from "../assets/producto-camiseta.jpg.asset.json";
-import souvenirsImg from "../assets/producto-souvenirs.jpg.asset.json";
-import tarjetasImg from "../assets/producto-tarjetas.jpg.asset.json";
-import galeria1 from "../assets/galeria-1.jpg.asset.json";
-import galeria2 from "../assets/galeria-2.jpg.asset.json";
-import galeria3 from "../assets/galeria-3.jpg.asset.json";
-import galeria4 from "../assets/galeria-4.jpg.asset.json";
 import { ScrollInkJourney } from "../components/scroll-ink-journey";
+
+const localAsset = { url: `${import.meta.env.BASE_URL}print-shine-assets.svg` };
+const logoAsset = localAsset;
+const tazaImg = localAsset;
+const camisetaImg = localAsset;
+const souvenirsImg = localAsset;
+const tarjetasImg = localAsset;
+const galeria1 = localAsset;
+const galeria2 = localAsset;
+const galeria3 = localAsset;
+const galeria4 = localAsset;
 
 const WHATSAPP_PRIMARY = "5354383056";
 const WHATSAPP_SECONDARY = "5352922118";
@@ -238,7 +240,7 @@ function Index() {
             <a
               href={whatsappLink(
                 WHATSAPP_PRIMARY,
-                "Hola, quiero más información sobre sus productos."
+                "Hola, quiero más información sobre sus productos.",
               )}
               target="_blank"
               rel="noopener noreferrer"
@@ -255,11 +257,7 @@ function Index() {
             onClick={() => setMobileMenuOpen((v) => !v)}
             aria-label={mobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
           >
-            {mobileMenuOpen ? (
-              <X className="h-6 w-6" />
-            ) : (
-              <Menu className="h-6 w-6" />
-            )}
+            {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
 
@@ -279,7 +277,7 @@ function Index() {
               <a
                 href={whatsappLink(
                   WHATSAPP_PRIMARY,
-                  "Hola, quiero más información sobre sus productos."
+                  "Hola, quiero más información sobre sus productos.",
                 )}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -307,21 +305,20 @@ function Index() {
               </div>
 
               <h1 className="font-display text-4xl font-extrabold text-foreground sm:text-5xl lg:text-7xl">
-                Dale color a tus ideas con{" "}
-                <span className="text-gradient-brand">Qué Pinta</span>
+                Dale color a tus ideas con <span className="text-gradient-brand">Qué Pinta</span>
               </h1>
 
               <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground lg:mx-0">
-                Somos un taller creativo de diseño gráfico e impresión por
-                sublimación. Transformamos tus ideas en productos únicos:
-                tazas, camisetas, souvenirs, tarjetas y mucho más.
+                Somos un taller creativo de diseño gráfico e impresión por sublimación.
+                Transformamos tus ideas en productos únicos: tazas, camisetas, souvenirs, tarjetas y
+                mucho más.
               </p>
 
               <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row lg:justify-start">
                 <a
                   href={whatsappLink(
                     WHATSAPP_PRIMARY,
-                    "Hola, quiero hacer un pedido personalizado."
+                    "Hola, quiero hacer un pedido personalizado.",
                   )}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -365,8 +362,8 @@ function Index() {
               Nuestros servicios
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-              Diseño e impresión de alta calidad para particulares, empresas y
-              eventos. Todo personalizado a tu gusto.
+              Diseño e impresión de alta calidad para particulares, empresas y eventos. Todo
+              personalizado a tu gusto.
             </p>
           </div>
 
@@ -381,9 +378,7 @@ function Index() {
                 >
                   <service.icon className={`h-6 w-6 ${service.color}`} />
                 </div>
-                <h3 className="text-lg font-semibold text-card-foreground">
-                  {service.title}
-                </h3>
+                <h3 className="text-lg font-semibold text-card-foreground">{service.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                   {service.description}
                 </p>
@@ -394,10 +389,7 @@ function Index() {
       </section>
 
       {/* Products */}
-      <section
-        id="productos"
-        className="bg-secondary/50 px-4 py-20 sm:px-6 lg:px-8"
-      >
+      <section id="productos" className="bg-secondary/50 px-4 py-20 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="mb-12 text-center">
             <p className="mb-3 text-sm font-bold uppercase tracking-[0.24em] text-primary">
@@ -428,18 +420,11 @@ function Index() {
                   />
                 </div>
                 <div className="p-5">
-                  <h3 className="font-semibold text-card-foreground">
-                    {product.name}
-                  </h3>
-                  <p className="mt-1 text-sm text-muted-foreground">
-                    {product.description}
-                  </p>
+                  <h3 className="font-semibold text-card-foreground">{product.name}</h3>
+                  <p className="mt-1 text-sm text-muted-foreground">{product.description}</p>
                   <p className="mt-3 text-lg font-bold text-primary">{product.price}</p>
                   <a
-                    href={whatsappLink(
-                      WHATSAPP_PRIMARY,
-                      `Hola, quiero pedir ${product.name}.`
-                    )}
+                    href={whatsappLink(WHATSAPP_PRIMARY, `Hola, quiero pedir ${product.name}.`)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#25D366] px-4 py-2.5 text-sm font-semibold text-white transition-transform hover:scale-[1.02]"
@@ -471,21 +456,14 @@ function Index() {
               {priceList.map((item) => (
                 <a
                   key={item.name}
-                  href={whatsappLink(
-                    WHATSAPP_PRIMARY,
-                    `Hola, quiero consultar por ${item.name}.`
-                  )}
+                  href={whatsappLink(WHATSAPP_PRIMARY, `Hola, quiero consultar por ${item.name}.`)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex items-center justify-between gap-4 rounded-2xl border border-border/70 bg-background/70 p-4 transition-colors hover:border-primary/50 hover:bg-primary/5"
                 >
                   <span className="min-w-0">
-                    <span className="block font-semibold text-card-foreground">
-                      {item.name}
-                    </span>
-                    <span className="mt-1 block text-xs text-muted-foreground">
-                      {item.detail}
-                    </span>
+                    <span className="block font-semibold text-card-foreground">{item.name}</span>
+                    <span className="mt-1 block text-xs text-muted-foreground">{item.detail}</span>
                   </span>
                   <span className="shrink-0 text-lg font-bold text-primary transition-transform group-hover:translate-x-0.5">
                     {item.price}
@@ -495,7 +473,8 @@ function Index() {
             </div>
 
             <p className="mt-6 text-center text-sm text-muted-foreground">
-              Los precios corresponden a las opciones indicadas. Escríbenos para confirmar diseño, disponibilidad y cantidades.
+              Los precios corresponden a las opciones indicadas. Escríbenos para confirmar diseño,
+              disponibilidad y cantidades.
             </p>
           </div>
         </div>
@@ -509,8 +488,7 @@ function Index() {
               Galería de trabajos
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-              Muestras de productos que hemos personalizado para nuestros
-              clientes.
+              Muestras de productos que hemos personalizado para nuestros clientes.
             </p>
           </div>
 
@@ -539,23 +517,19 @@ function Index() {
       </section>
 
       {/* About */}
-      <section
-        id="nosotros"
-        className="canvas-grid px-4 py-20 sm:px-6 lg:px-8"
-      >
+      <section id="nosotros" className="canvas-grid px-4 py-20 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl text-center">
           <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
             Sobre Qué Pinta
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
-            Qué Pinta nació con la idea de acercar el diseño y la impresión
-            personalizada a todas las personas. Creemos que cada detalle cuenta:
-            un regalo, una tarjeta, una camiseta o un souvenir pueden contar una
-            historia.
+            Qué Pinta nació con la idea de acercar el diseño y la impresión personalizada a todas
+            las personas. Creemos que cada detalle cuenta: un regalo, una tarjeta, una camiseta o un
+            souvenir pueden contar una historia.
           </p>
           <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
-            Trabajamos con dedicación, materiales de calidad y mucho color para
-            que tus proyectos se vean exactamente como los imaginaste.
+            Trabajamos con dedicación, materiales de calidad y mucho color para que tus proyectos se
+            vean exactamente como los imaginaste.
           </p>
 
           <div className="mt-10 grid gap-6 sm:grid-cols-3">
@@ -599,16 +573,13 @@ function Index() {
                 Contáctanos
               </h2>
               <p className="mt-4 text-muted-foreground">
-                ¿Tienes una idea? Escríbenos por WhatsApp o déjanos tu mensaje y
-                te responderemos lo antes posible.
+                ¿Tienes una idea? Escríbenos por WhatsApp o déjanos tu mensaje y te responderemos lo
+                antes posible.
               </p>
 
               <div className="mt-8 space-y-4">
                 <a
-                  href={whatsappLink(
-                    WHATSAPP_PRIMARY,
-                    "Hola, quiero más información."
-                  )}
+                  href={whatsappLink(WHATSAPP_PRIMARY, "Hola, quiero más información.")}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 rounded-2xl border border-border bg-card p-4 shadow-card transition-colors hover:bg-secondary"
@@ -617,20 +588,13 @@ function Index() {
                     <MessageCircle className="h-6 w-6 text-[#25D366]" />
                   </div>
                   <div>
-                    <p className="font-semibold text-card-foreground">
-                      WhatsApp principal
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                      +53 5 4383056
-                    </p>
+                    <p className="font-semibold text-card-foreground">WhatsApp principal</p>
+                    <p className="text-sm text-muted-foreground">+53 5 4383056</p>
                   </div>
                 </a>
 
                 <a
-                  href={whatsappLink(
-                    WHATSAPP_SECONDARY,
-                    "Hola, quiero más información."
-                  )}
+                  href={whatsappLink(WHATSAPP_SECONDARY, "Hola, quiero más información.")}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 rounded-2xl border border-border bg-card p-4 shadow-card transition-colors hover:bg-secondary"
@@ -639,20 +603,13 @@ function Index() {
                     <Phone className="h-6 w-6 text-[#25D366]" />
                   </div>
                   <div>
-                    <p className="font-semibold text-card-foreground">
-                      WhatsApp alternativo
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                      +53 5 2922118
-                    </p>
+                    <p className="font-semibold text-card-foreground">WhatsApp alternativo</p>
+                    <p className="text-sm text-muted-foreground">+53 5 2922118</p>
                   </div>
                 </a>
 
                 <a
-                  href={whatsappLink(
-                    WHATSAPP_PRIMARY,
-                    "Hola, quiero solicitar un presupuesto."
-                  )}
+                  href={whatsappLink(WHATSAPP_PRIMARY, "Hola, quiero solicitar un presupuesto.")}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 rounded-2xl border border-border bg-card p-4 shadow-card transition-colors hover:bg-secondary"
@@ -661,12 +618,8 @@ function Index() {
                     <Mail className="h-6 w-6 text-brand-pink" />
                   </div>
                   <div>
-                    <p className="font-semibold text-card-foreground">
-                      Solicitar presupuesto
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                      Escríbenos por WhatsApp
-                    </p>
+                    <p className="font-semibold text-card-foreground">Solicitar presupuesto</p>
+                    <p className="text-sm text-muted-foreground">Escríbenos por WhatsApp</p>
                   </div>
                 </a>
 
@@ -675,21 +628,15 @@ function Index() {
                     <MapPin className="h-6 w-6 text-brand-teal" />
                   </div>
                   <div>
-                    <p className="font-semibold text-card-foreground">
-                      Ubicación
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                      La Habana, Cuba
-                    </p>
+                    <p className="font-semibold text-card-foreground">Ubicación</p>
+                    <p className="text-sm text-muted-foreground">La Habana, Cuba</p>
                   </div>
                 </div>
               </div>
             </div>
 
             <div className="rounded-2xl border border-border bg-card p-6 shadow-card sm:p-8">
-              <h3 className="text-xl font-semibold text-card-foreground">
-                Envíanos un mensaje
-              </h3>
+              <h3 className="text-xl font-semibold text-card-foreground">Envíanos un mensaje</h3>
               <form onSubmit={handleContactSubmit} className="mt-6 space-y-4">
                 <div>
                   <label
@@ -760,9 +707,7 @@ function Index() {
               />
               <div>
                 <p className="font-semibold text-foreground">Qué Pinta</p>
-                <p className="text-sm text-muted-foreground">
-                  Diseños e Impresiones
-                </p>
+                <p className="text-sm text-muted-foreground">Diseños e Impresiones</p>
               </div>
             </div>
 
@@ -780,8 +725,7 @@ function Index() {
           </div>
 
           <div className="mt-8 border-t border-border pt-6 text-center text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Qué Pinta. Todos los derechos
-            reservados.
+            © {new Date().getFullYear()} Qué Pinta. Todos los derechos reservados.
           </div>
         </div>
       </footer>
