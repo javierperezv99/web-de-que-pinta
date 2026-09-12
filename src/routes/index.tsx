@@ -93,28 +93,66 @@ const services = [
 
 const products = [
   {
-    name: "Taza personalizada",
-    price: "Desde $8.00 USD",
+    name: "Jarra personalizada",
+    price: "2 300",
     image: tazaImg.url,
-    description: "Cerámica blanca de 11 oz con diseño a full color.",
+    description: "Cerámica blanca con diseño a full color.",
   },
   {
-    name: "Camiseta estampada",
-    price: "Desde $12.00 USD",
+    name: "Pullover personalizado",
+    price: "Desde 2 300",
     image: camisetaImg.url,
-    description: "100% poliéster, colores brillantes y duraderos.",
+    description: "Personalización textil con acabados duraderos.",
   },
   {
-    name: "Souvenirs variados",
-    price: "Desde $2.00 USD",
+    name: "Llavero personalizado",
+    price: "1 500",
     image: souvenirsImg.url,
-    description: "Llaveros, imanes y detalles personalizables por mayor.",
+    description: "Un detalle especial para regalar o promocionar tu marca.",
   },
   {
     name: "Tarjetas de presentación",
-    price: "Desde $5.00 USD",
+    price: "Consultar",
     image: tarjetasImg.url,
-    description: "Paquetes de 50 unidades, diseño incluido.",
+    description: "Diseño e impresión profesional para tu negocio.",
+  },
+];
+
+const priceList = [
+  {
+    name: "Jarra",
+    price: "2 300",
+    detail: "Personalizada a tu gusto",
+  },
+  {
+    name: "Llavero",
+    price: "1 500",
+    detail: "Detalle personalizado",
+  },
+  {
+    name: "Pullover solo",
+    price: "2 300",
+    detail: "Sin diseño incluido",
+  },
+  {
+    name: "Pullover · 1 cara",
+    price: "2 800",
+    detail: "Diseño en una cara",
+  },
+  {
+    name: "Pullover · 2 caras",
+    price: "3 000",
+    detail: "Diseño en ambas caras",
+  },
+  {
+    name: "Pullover · sublimación pequeña",
+    price: "300",
+    detail: "Área de sublimación pequeña",
+  },
+  {
+    name: "Pullover · sublimación grande",
+    price: "700",
+    detail: "Área de sublimación grande",
   },
 ];
 
@@ -362,12 +400,14 @@ function Index() {
       >
         <div className="mx-auto max-w-7xl">
           <div className="mb-12 text-center">
+            <p className="mb-3 text-sm font-bold uppercase tracking-[0.24em] text-primary">
+              Diseños que dejan huella
+            </p>
             <h2 className="font-display text-3xl font-bold text-foreground sm:text-4xl">
-              Productos personalizados
+              Productos y tarifas
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-              Estos son algunos de nuestros productos más solicitados. Los
-              precios pueden variar según cantidad y diseño.
+              Elige tu producto, cuéntanos tu idea y lo convertimos en una pieza única.
             </p>
           </div>
 
@@ -375,7 +415,7 @@ function Index() {
             {products.map((product) => (
               <div
                 key={product.name}
-                className="overflow-hidden rounded-2xl border border-border bg-card shadow-card transition-all hover:-translate-y-1 hover:shadow-soft"
+                className="group overflow-hidden rounded-3xl border border-border bg-card shadow-card transition-all hover:-translate-y-1 hover:shadow-soft"
               >
                 <div className="aspect-square overflow-hidden bg-muted">
                   <img
@@ -384,7 +424,7 @@ function Index() {
                     loading="lazy"
                     width={1024}
                     height={1024}
-                    className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
                 <div className="p-5">
@@ -394,7 +434,7 @@ function Index() {
                   <p className="mt-1 text-sm text-muted-foreground">
                     {product.description}
                   </p>
-                  <p className="mt-3 font-bold text-primary">{product.price}</p>
+                  <p className="mt-3 text-lg font-bold text-primary">{product.price}</p>
                   <a
                     href={whatsappLink(
                       WHATSAPP_PRIMARY,
@@ -410,6 +450,53 @@ function Index() {
                 </div>
               </div>
             ))}
+          </div>
+
+          <div className="mt-10 rounded-3xl border border-border bg-card p-5 shadow-card sm:p-8">
+            <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+              <div>
+                <p className="text-sm font-bold uppercase tracking-[0.2em] text-primary">
+                  Lista de precios
+                </p>
+                <h3 className="mt-2 font-display text-2xl font-bold text-card-foreground sm:text-3xl">
+                  Personaliza tu pedido
+                </h3>
+              </div>
+              <span className="w-fit rounded-full bg-primary/10 px-4 py-2 text-sm font-semibold text-primary">
+                Consulta por WhatsApp
+              </span>
+            </div>
+
+            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {priceList.map((item) => (
+                <a
+                  key={item.name}
+                  href={whatsappLink(
+                    WHATSAPP_PRIMARY,
+                    `Hola, quiero consultar por ${item.name}.`
+                  )}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center justify-between gap-4 rounded-2xl border border-border/70 bg-background/70 p-4 transition-colors hover:border-primary/50 hover:bg-primary/5"
+                >
+                  <span className="min-w-0">
+                    <span className="block font-semibold text-card-foreground">
+                      {item.name}
+                    </span>
+                    <span className="mt-1 block text-xs text-muted-foreground">
+                      {item.detail}
+                    </span>
+                  </span>
+                  <span className="shrink-0 text-lg font-bold text-primary transition-transform group-hover:translate-x-0.5">
+                    {item.price}
+                  </span>
+                </a>
+              ))}
+            </div>
+
+            <p className="mt-6 text-center text-sm text-muted-foreground">
+              Los precios corresponden a las opciones indicadas. Escríbenos para confirmar diseño, disponibilidad y cantidades.
+            </p>
           </div>
         </div>
       </section>
