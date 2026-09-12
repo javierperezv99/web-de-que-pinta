@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 type ScrollInkJourneyProps = {
   logoUrl: string;
+  contactUrl: string;
 };
 
 const drops = [
@@ -13,7 +14,7 @@ const drops = [
   { left: "91%", size: 9, speed: 1.25, delay: 0.1, color: "bg-brand-pink" },
 ];
 
-export function ScrollInkJourney({ logoUrl }: ScrollInkJourneyProps) {
+export function ScrollInkJourney({ logoUrl, contactUrl }: ScrollInkJourneyProps) {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
@@ -87,6 +88,15 @@ export function ScrollInkJourney({ logoUrl }: ScrollInkJourneyProps) {
           >
             Tu idea. Nuestra tinta. Una impresión única.
           </p>
+          <a
+            href={contactUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="pointer-events-auto mx-auto mt-8 flex w-fit items-center rounded-full bg-primary px-7 py-3.5 font-semibold text-primary-foreground shadow-soft transition-transform hover:scale-105"
+            style={{ opacity: Math.max(0, (reveal - 0.76) / 0.24) }}
+          >
+            Crear algo único
+          </a>
         </div>
       </div>
     </div>

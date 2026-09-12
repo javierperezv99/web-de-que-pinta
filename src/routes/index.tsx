@@ -167,7 +167,10 @@ function Index() {
 
   return (
     <div className="min-h-screen bg-background">
-      <ScrollInkJourney logoUrl={logoAsset.url} />
+      <ScrollInkJourney
+        logoUrl={logoAsset.url}
+        contactUrl={whatsappLink(WHATSAPP_PRIMARY, "Hola, quiero crear algo único con Qué Pinta.")}
+      />
       {/* Header */}
       <header className="sticky top-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-md">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
@@ -654,19 +657,7 @@ function Index() {
       {/* Footer */}
       <section className="relative flex min-h-[92svh] items-center justify-center overflow-hidden border-t border-border bg-background px-4 py-24">
         <div className="canvas-grid absolute inset-0 opacity-50" />
-        <div className="relative z-10 max-w-2xl text-center">
-          <p className="font-display text-sm font-bold uppercase text-muted-foreground">El resultado de cada idea</p>
-          <img src={logoAsset.url} alt="Qué Pinta — Diseños e Impresiones" loading="lazy" className="mx-auto mt-8 w-full max-w-lg mix-blend-multiply" />
-          <a
-            href={whatsappLink(WHATSAPP_PRIMARY, "Hola, quiero crear algo único con Qué Pinta.")}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-10 inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 font-semibold text-primary-foreground shadow-soft transition-transform hover:scale-105"
-          >
-            <MessageCircle className="h-5 w-5" />
-            Crear algo único
-          </a>
-        </div>
+        <div className="relative z-10 h-[26rem] w-full max-w-2xl" aria-hidden="true" />
       </section>
 
       <footer className="border-t border-border bg-secondary/50 px-4 py-10 sm:px-6 lg:px-8">
