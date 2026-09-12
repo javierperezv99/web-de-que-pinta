@@ -26,6 +26,7 @@ import galeria1 from "../assets/galeria-1.jpg.asset.json";
 import galeria2 from "../assets/galeria-2.jpg.asset.json";
 import galeria3 from "../assets/galeria-3.jpg.asset.json";
 import galeria4 from "../assets/galeria-4.jpg.asset.json";
+import { ScrollInkJourney } from "../components/scroll-ink-journey";
 
 const WHATSAPP_PRIMARY = "5354383056";
 const WHATSAPP_SECONDARY = "5352922118";
@@ -166,6 +167,10 @@ function Index() {
 
   return (
     <div className="min-h-screen bg-background">
+      <ScrollInkJourney
+        logoUrl={logoAsset.url}
+        contactUrl={whatsappLink(WHATSAPP_PRIMARY, "Hola, quiero crear algo único con Qué Pinta.")}
+      />
       {/* Header */}
       <header className="sticky top-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-md">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
@@ -253,14 +258,8 @@ function Index() {
       {/* Hero */}
       <section
         id="inicio"
-        className="gradient-hero relative overflow-hidden px-4 pb-20 pt-12 sm:px-6 sm:pt-16 lg:px-8 lg:pt-24"
+        className="canvas-grid relative min-h-[calc(100svh-4.5rem)] overflow-hidden px-4 pb-20 pt-12 sm:px-6 sm:pt-16 lg:px-8 lg:pt-24"
       >
-        <div className="absolute inset-0 opacity-30">
-          <div className="absolute -right-20 -top-20 h-72 w-72 rounded-full bg-brand-pink/20 blur-3xl" />
-          <div className="absolute -bottom-20 -left-20 h-72 w-72 rounded-full bg-brand-teal/20 blur-3xl" />
-          <div className="absolute left-1/2 top-1/2 h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-yellow/15 blur-3xl" />
-        </div>
-
         <div className="relative mx-auto max-w-7xl">
           <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
             <div className="text-center lg:text-left">
@@ -269,7 +268,7 @@ function Index() {
                 Diseño + Impresión en Cuba
               </div>
 
-              <h1 className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+              <h1 className="font-display text-4xl font-extrabold text-foreground sm:text-5xl lg:text-7xl">
                 Dale color a tus ideas con{" "}
                 <span className="text-gradient-brand">Qué Pinta</span>
               </h1>
@@ -304,12 +303,13 @@ function Index() {
             </div>
 
             <div className="relative flex justify-center lg:justify-end">
-              <div className="relative">
-                <div className="absolute inset-0 -rotate-3 rounded-3xl bg-gradient-brand opacity-20 blur-lg" />
+              <div className="relative border border-border bg-background p-3 shadow-soft">
+                <div className="absolute -right-5 -top-5 h-14 w-14 rounded-full bg-brand-pink/80" />
+                <div className="absolute -bottom-4 left-12 h-8 w-8 rounded-full bg-brand-teal/80" />
                 <img
                   src={logoAsset.url}
                   alt="Qué Pinta — Diseños e Impresiones"
-                  className="relative w-full max-w-md rounded-3xl bg-white p-4 shadow-soft sm:max-w-lg"
+                  className="relative w-full max-w-md bg-background p-4 sm:max-w-lg"
                   width={600}
                   height={600}
                 />
@@ -332,11 +332,11 @@ function Index() {
             </p>
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid auto-rows-fr gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {services.map((service) => (
               <div
                 key={service.title}
-                className="group rounded-2xl border border-border bg-card p-6 shadow-card transition-all hover:-translate-y-1 hover:shadow-soft"
+                className={`group rounded-lg border border-border bg-card p-6 shadow-card transition-all hover:-translate-y-1 hover:shadow-soft ${service.title === "Diseño gráfico personalizado" || service.title === "Estampado en textiles" ? "lg:col-span-2" : ""}`}
               >
                 <div
                   className={`mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl ${service.bg}`}
@@ -362,7 +362,7 @@ function Index() {
       >
         <div className="mx-auto max-w-7xl">
           <div className="mb-12 text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+            <h2 className="font-display text-3xl font-bold text-foreground sm:text-4xl">
               Productos personalizados
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
@@ -454,7 +454,7 @@ function Index() {
       {/* About */}
       <section
         id="nosotros"
-        className="gradient-hero px-4 py-20 sm:px-6 lg:px-8"
+        className="canvas-grid px-4 py-20 sm:px-6 lg:px-8"
       >
         <div className="mx-auto max-w-4xl text-center">
           <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
@@ -655,6 +655,11 @@ function Index() {
       </section>
 
       {/* Footer */}
+      <section className="relative flex min-h-[92svh] items-center justify-center overflow-hidden border-t border-border bg-background px-4 py-24">
+        <div className="canvas-grid absolute inset-0 opacity-50" />
+        <div className="relative z-10 h-[26rem] w-full max-w-2xl" aria-hidden="true" />
+      </section>
+
       <footer className="border-t border-border bg-secondary/50 px-4 py-10 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
