@@ -68,13 +68,15 @@
   --color-brand-purple: var(--brand-purple);
   --color-brand-teal: var(--brand-teal);
   --color-brand-cream: var(--brand-cream);
+  --font-display: "Outfit", sans-serif;
+  --font-sans: "Figtree", sans-serif;
 }
 
 :root {
   --radius: 0.875rem;
 
   /* Warm off-white background */
-  --background: oklch(0.985 0.005 85);
+  --background: oklch(1 0 0);
   --foreground: oklch(0.2 0.04 260);
 
   --card: oklch(1 0 0);
@@ -179,11 +181,43 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: var(--font-sans);
   }
 
   html {
     scroll-behavior: smooth;
   }
+}
+
+@keyframes ink-breathe {
+  0%, 100% { transform: scale(0.96) rotate(-1deg); }
+  50% { transform: scale(1.04) rotate(1deg); }
+}
+
+@utility canvas-grid {
+  background-image:
+    linear-gradient(to right, color-mix(in oklab, var(--border) 38%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, var(--border) 38%, transparent) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+@utility ink-drop {
+  border-radius: 52% 48% 58% 42% / 38% 42% 58% 62%;
+  filter: saturate(1.12);
+  box-shadow: 0 8px 16px color-mix(in oklab, currentColor 18%, transparent);
+  transition: opacity 220ms ease;
+  will-change: transform;
+}
+
+@utility ink-bloom {
+  border-radius: 44% 56% 36% 64% / 58% 34% 66% 42%;
+  animation: ink-breathe 5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .ink-drop { display: none; }
+  .ink-bloom { animation: none; }
 }
 
 @utility gradient-hero {

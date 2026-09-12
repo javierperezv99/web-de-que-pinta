@@ -59,7 +59,7 @@ export function ScrollInkJourney({ logoUrl }: ScrollInkJourneyProps) {
               width: drop.size,
               height: drop.size * 1.28,
               opacity: progress > 0.02 && progress < 0.96 ? 0.82 : 0,
-              transform: `translate3d(0, ${localProgress * (window.innerHeight + 180) - 80}px, 0) rotate(${index % 2 ? 12 : -9}deg)`,
+              transform: `translate3d(0, ${localProgress * 115 - 8}vh, 0) rotate(${index % 2 ? 12 : -9}deg)`,
             }}
           />
         );
